@@ -6,13 +6,14 @@ DROP TABLE IF EXISTS users;
 CREATE TABLE merchants (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    location VARCHAR(255)
+    street VARCHAR(255),
+    city VARCHAR(255)
 );
 
 CREATE TABLE tags (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    description VARCHAR(255)
+    description TEXT
 );
 
 CREATE TABLE transactions (
@@ -25,7 +26,8 @@ CREATE TABLE transactions (
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255),
+    first_name VARCHAR(255),
+    last_name VARCHAR(255),
     email VARCHAR(255),
     password VARCHAR(255)
 );
