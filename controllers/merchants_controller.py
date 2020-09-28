@@ -16,7 +16,8 @@ def merchants():
 @merchants_blueprint.route("/merchants/<id>")
 def show_merchant(id):
     merchant = merchant_repository.select(id)
-    return render_template("merchants/show.html", merchant = merchant)
+    transactions = merchant_repository.transactions(id)
+    return render_template("merchants/show.html", merchant = merchant, transactions = transactions)
 
 # NEW
 @merchants_blueprint.route("/merchants/new")

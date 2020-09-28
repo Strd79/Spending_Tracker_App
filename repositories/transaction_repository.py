@@ -6,6 +6,8 @@ from models.tag import Tag
 import repositories.merchant_repository as merchant_repository
 import repositories.tag_repository as tag_repository
 
+# CRUD Functions
+
 def save(transaction):
     sql = "INSERT INTO transactions (merchant_id, date, amount, tag_id) VALUES (%s, %s, %s, %s) RETURNING id"
     values = [transaction.merchant.id, transaction.date, transaction.amount, transaction.tag.id]
@@ -23,15 +25,6 @@ def select_all():
         transaction = Transaction(merchant, row["date"], row["amount"], tag, row["id"])
         transactions.append(transaction)
     return transactions
-
-def amounts_total():
-    total = []
-    sql = "SELECT amount FROM transactions"
-    results = run_sql(sql)
-    for row in results:
-        amount = row["amount"]
-        total.append(amount)
-    return sum(total)
 
 def select(id):
     sql = "SELECT * FROM transactions WHERE id = %s"
@@ -55,3 +48,14 @@ def update(transaction):
     sql = "UPDATE transactions SET (merchant_id, date, amount, tag_id) = (%s, %s, %s, %s) WHERE id = %s"
     values = [transaction.merchant.id, transaction.date, transaction.amount, transaction.tag.id, transaction.id]
     run_sql(sql, values)
+
+# ADDITIONAL Functions
+
+def amounts_total():
+    total = []
+    sql = "SELECT amount FROM transactions"
+    results = run_sql(sql)
+    for row in results:
+        amount = row["amount"]
+        total.append(amount)
+    return sum(total)
