@@ -15,7 +15,7 @@ def save(transaction):
 
 def select_all():
     transactions = []
-    sql = "SELECT * FROM transactions"
+    sql = "SELECT * FROM transactions ORDER BY date ASC"
     results = run_sql(sql)
     for row in results:
         merchant = merchant_repository.select(row["merchant_id"])
@@ -23,6 +23,15 @@ def select_all():
         transaction = Transaction(merchant, row["date"], row["amount"], tag, row["id"])
         transactions.append(transaction)
     return transactions
+
+def amounts_total():
+    total = []
+    sql = "SELECT amount FROM transactions"
+    results = run_sql(sql)
+    for row in results:
+        amount = row["amount"]
+        total.append(amount)
+    return sum(total)
 
 def select(id):
     sql = "SELECT * FROM transactions WHERE id = %s"
