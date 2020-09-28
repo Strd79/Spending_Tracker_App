@@ -1,0 +1,43 @@
+body {
+    background-color: aliceblue;
+    font-family: 'Ubuntu', sans-serif;
+    align-content: center;
+    margin: 0;
+}
+main {
+    margin: 25px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #4669E6;
+    padding: 25px;
+    color: white;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+}
+
+li {
+    margin-left: 20px;
+}
+
+header button {
+    background-color: white;
+    border-radius: 15px;
+    width: 120px;
+    height: 50px;
+    border: none;
+    box-shadow: 5px 7px darkblue;
+    font-size: 14px;
+    font-weight: 700;
+    font-style: italic;
+}
+
+header button:hover {
+    background-color: aquamarine;
+}
