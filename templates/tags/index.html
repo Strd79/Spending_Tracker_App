@@ -2,6 +2,20 @@
 
 {% block content %}
 
-This is my TAGS index page for listing all Tags.
+<a href="/tags/new"><button>Add a New Tag</button></a>
+
+<h2>Tag List:</h2>
+
+{% for tag in tags %}
+
+    <section>
+        <h3>{{ tag.name }}</h3>
+        <p><a href="/tags/{{ tag.id }}">View the description</a></p>
+        <form action="/tags/{{ tag.id }}/edit">
+            <input type="submit" value="Edit">
+        </form>
+    </section>
+
+{% endfor %}
 
 {% endblock %}

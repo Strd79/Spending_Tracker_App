@@ -2,6 +2,19 @@
 
 {% block content %}
 
-This is my EDIT Tags FORM page.
+<h2>Edit a Tag's details</h2>
+
+<form action="/tags/{{ tag.id }}" method="POST">
+    <div>
+        <label for="name">Name:</label><br>
+        <input type="text" name="name" id="name" value="{{ tag.name }}"><br><br>
+    </div>
+    <div>
+        <label for="description">Description:</label><br>
+        <textarea name="description" id="description" cols="50" rows="5">{{ tag.description }}</textarea><br><br>
+    </div>
+    <input type="submit" value="Update">
+    <a href="/tags"><button>Cancel</button></a>
+</form>
 
 {% endblock %}

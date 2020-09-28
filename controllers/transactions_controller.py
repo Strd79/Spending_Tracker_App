@@ -33,7 +33,7 @@ def create_transaction():
     merchant_id = request.form["merchant_id"]
     merchant = merchant_repository.select(merchant_id)
     date = request.form["date"]
-    amount = request.form["amount"]
+    amount = float(request.form["amount"])
     tag_id = request.form["tag_id"]
     tag = tag_repository.select(tag_id)
     new_transaction = Transaction(merchant, date, amount, tag)
@@ -55,7 +55,7 @@ def update_transaction(id):
     merchant = merchant_repository.select(merchant_id)
     date = request.form["date"]
     amount = request.form["amount"]
-    tag_id = request.form["tag-id"]
+    tag_id = request.form["tag_id"]
     tag = tag_repository.select(tag_id)
     transaction = Transaction(merchant, date, amount, tag, id)
     transaction_repository.update(transaction)

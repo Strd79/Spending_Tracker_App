@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>{{ merchant.name }}</h2>
+<p>Street: {{ merchant.street }}</p>
+<p>City: {{ merchant.city }}</p>
+<form action="/merchants/{{ merchant.id }}/edit">
+    <input type="submit" value="Edit">
+</form>
+
+<p><a href="/merchants">Back to full list of Merchants</a></p>
+
+{% endblock %}

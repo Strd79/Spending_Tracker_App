@@ -2,6 +2,23 @@
 
 {% block content %}
 
-This is my NEW Merchants FORM page.
+<h2>Add a new Merchant</h2>
+
+<form action="/merchants" method="POST">
+    <div>
+        <label for="name"><sup>*</sup>Merchant's name:</label><br>
+        <input type="text" name="name" id="name" placeholder="e.g. Tesco" required><br><br>
+    </div>
+    <div>
+        <label for="street"><sup>*</sup>Street location:</label><br>
+        <input type="text" name="street" id="street" placeholder="e.g. Main Street" required><br><br>
+    </div>
+    <div>
+        <label for="city"><sup>*</sup>City location:</label><br>
+        <input type="text" name="city" id="city" placeholder="e.g. Birmingham" required>
+    </div>
+    <p><sup>*</sup> Denotes a required field.</p>
+    <input type="submit" value="Add Merchant">
+</form>
 
 {% endblock %}

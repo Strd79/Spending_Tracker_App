@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>{{ transaction.merchant.name}}</h2>
+<p>Merchant location: {{ transaction.merchant.street }}, {{ transaction.merchant.city }}</p>
+<p>This transaction took place on: {{ transaction.date }}</p>
+<p>You spent: £{{ transaction.amount }}</p>
+<p>Tag: {{ transaction.tag.name }}</p>
+<form action="/transactions/{{ transaction.id }}/edit">
+    <input type="submit" value="Edit">
+</form>
+
+<p><a href="/transactions">Back to full list of Transactions</a></p>
+
+{% endblock %}

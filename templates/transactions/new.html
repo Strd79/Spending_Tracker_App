@@ -2,6 +2,39 @@
 
 {% block content %}
 
-This is my NEW Transactions FORM page.
+<h2>Add a new Transaction</h2>
+
+<form action="/transactions" method="POST">
+    <div>
+        <label for="merchant">Select a merchant:</label><br>
+        <select name="merchant_id" id="merchant">
+            <option>- Select a merchant -</option>
+            {% for merchant in merchants %}
+            <option value="{{ merchant.id }}">
+                {{ merchant.name }}: {{ merchant.street}}
+            </option>
+            {% endfor %}
+        </select><br><br>
+    </div>
+    <div>
+        <label for="date">Date of transaction:</label><br>
+        <input type="date" name="date" id="date"><br><br>
+    </div>
+    <div>
+        <label for="amount">Spend amount:</label><br>
+        <input type="text" name="amount" id="amount" placeholder="£"><br><br>
+    </div>
+    <div><label for="tag">Select a tag for your transaction:</label><br>
+        <select name="tag_id" id="tag" >
+            <option>- Select a tag -</option>
+            {% for tag in tags%}
+            <option value="{{ tag.id }}">
+                {{ tag.name }}
+            </option>
+            {% endfor %}
+        </select><br><br>
+    </div>
+    <input type="submit" value="Add Transaction">
+</form>
 
 {% endblock %}

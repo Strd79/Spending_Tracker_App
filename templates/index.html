@@ -2,6 +2,45 @@
 
 {% block content %}
 
-This is my home page.
+<h2>Welcome to <em>Spend 'N' Track</em>!</h2>
+<p>Before you begin, you may wish to add some merchants you use regularly, as well as some tags to keep track of what your spending your money on.</p>
+<a href="/merchants/new"><button>Add a New Merchant</button></a>
+<a href="/tags/new"><button>Add a New Tag</button></a>
+
+<h3>Add a New Transaction</h3>
+
+<form action="/transactions" method="POST">
+<div>
+    <label for="merchant">Select a merchant:</label><br>
+    <select name="merchant_id" id="merchant">
+        <option>- Select a merchant -</option>
+        {% for merchant in merchants %}
+        <option value="{{ merchant.id }}">
+            {{ merchant.name }}
+        </option>
+        {% endfor %}
+    </select><br><br>
+</div>
+<div>
+    <label for="date">Date of transaction:</label><br>
+    <input type="date" name="date" id="date"><br><br>
+</div>
+<div>
+    <label for="amount">Spend amount:</label><br>
+    <input type="text" name="amount" id="amount" placeholder="£"><br><br>
+</div>
+<div><label for="tag">Select a tag for your transaction:</label><br>
+    <select name="tag_id" id="tag">
+        <option>- Select a merchant -</option>
+        {% for tag in tags%}
+        <option value="{{ tag.id }}">
+            {{ tag.name }}
+        </option>
+        {% endfor %}
+    </select><br><br>
+</div>
+<input type="submit" value="Add Transaction">
+</form>
+
 
 {% endblock %}

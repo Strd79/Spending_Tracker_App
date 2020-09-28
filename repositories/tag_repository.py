@@ -10,7 +10,7 @@ def save(tag):
 
 def select_all():
     tags = []
-    sql = "SELECT * FROM tags"
+    sql = "SELECT * FROM tags ORDER BY name ASC"
     results = run_sql(sql)
     for row in results:
         tag = Tag(row["name"], row["description"], row["id"])

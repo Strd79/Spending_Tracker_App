@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spending Tracker</title>
+    <title>Spend 'N' Track</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <header>
-        <h1>Spending Tracker</h1>
+        <h1><em>Spend 'N' Track</em></h1>
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
@@ -23,7 +24,7 @@
         {% endblock %}
     </main>
     <footer>
-        <p>Spending Tracker &copy; by David Strain</p>
+        <p><em>Spend 'N' Track</em> &copy; by David Strain</p>
     </footer>
 </body>
 </html>

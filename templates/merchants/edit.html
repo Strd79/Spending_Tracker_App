@@ -2,6 +2,24 @@
 
 {% block content %}
 
-This is my EDIT Merchants FORM page.
+<h2>Edit a Merchant's details</h2>
+
+<form action="/merchants/{{ merchant.id }}" method="POST">
+    <div>
+        <label for="name">Name:</label><br>
+        <input type="text" name="name" id="name" value="{{ merchant.name }}"><br><br>
+    </div>
+    <div>
+        <label for="street">Street location:</label><br>
+        <input type="text" name="street" id="street" value="{{ merchant.street }}"><br><br>
+    </div>
+    <div>
+        <label for="city">City location:</label><br>
+        <input type="text" name="city" id="city" value="{{ merchant.city }}"><br><br>
+    </div>
+    <input type="submit" value="Update">
+    <a href="/merchants"><button>Cancel</button></a>
+</form>
+
 
 {% endblock %}

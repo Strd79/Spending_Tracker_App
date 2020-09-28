@@ -19,6 +19,6 @@ CREATE TABLE transactions (
     id SERIAL PRIMARY KEY,
     merchant_id INT REFERENCES merchants(id),
     date VARCHAR(255),
-    amount FLOAT,
+    amount DECIMAL(5,2),
     tag_id INT REFERENCES tags(id)
 );

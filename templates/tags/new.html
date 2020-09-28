@@ -2,6 +2,19 @@
 
 {% block content %}
 
-This is my NEW Tags FORM page.
+<h2>Add a new Tag</h2>
+
+<form action="/tags" method="POST">
+    <div>
+        <label for="name"><sup>*</sup>Tag's name:</label><br>
+        <input type="text" name="name" id="name" placeholder="e.g. Food & Drink" required><br><br>
+    </div>
+    <div>
+        <label for="description"><sup>*</sup>Description:</label><br>
+        <textarea name="description" id="description" cols="50" rows="5" placeholder="e.g. This is where I log all my shopping for food and drink." required></textarea>
+    </div>
+    <p><sup>*</sup> Denotes a required field.</p>
+    <input type="submit" value="Add Tag">
+</form>
 
 {% endblock %}

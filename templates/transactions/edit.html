@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Edit a Transaction's details</h2>
+
+<form action="/transactions/{{ transaction.id }}" method="POST">
+    <div>
+        <label for="merchant">Change the merchant:</label><br>
+        <select name="merchant_id" id="merchant" >
+            <option>- Select a merchant -</option>
+            {% for merchant in merchants %}
+            <option value="{{ merchant.id }}" {% if merchant.id == transaction.merchant.id %} selected {% endif %}>
+                {{ merchant.name }}: {{ merchant.street }}
+            </option>
+            {% endfor %}
+        </select><br><br>
+    </div>
+    <div>
+        <label for="date">Date of transaction:</label><br>
+        <input type="date" name="date" id="date" value="{{ transaction.date }}"><br><br>
+    </div>
+    <div>
+        <label for="amount">Spend amount:</label><br>
+        <input type="text" name="amount" id="amount" value="{{ transaction.amount }}"><br><br>
+    </div>
+    <div>
+        <label for="tag">Change the tag:</label><br>
+        <select name="tag_id" id="tag">
+            <option>- Select a tag -</option>
+            {% for tag in tags %}
+            <option value="{{ tag.id }}" {% if tag.id == transaction.tag.id %} selected {% endif %}>
+                {{ tag.name }}
+            </option>
+            {% endfor %}
+        </select><br><br>
+    </div>
+    <input type="submit" value="Update">
+    <a href="/transactions"><button>Cancel</button></a>
+</form>
+
+{% endblock %}
