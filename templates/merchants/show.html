@@ -11,7 +11,20 @@
 
 <p><a href="/merchants">Back to full list of Merchants</a></p>
 
-<h3>Transactions made with {{ merchant.name }}:</h3>
+<h3>Transactions & Total Spend</h3>
+<p>This is a list of transactions and total spend with <b>{{ merchant.name }}, {{ merchant.street }}</b>:</p>
 
+{% for transaction in transactions %}
+
+    <section>
+        <h4><b>Date:</b> {{ transaction.date }}</h4>
+        <p><b>Spend amount:</b> £{{ transaction.amount }}</p>
+        <p><b>Tag:</b> {{ transaction.tag.name }}</p>
+        <hr>
+    </section>
+
+{% endfor %}
+
+<h4>Total amount spent with {{ merchant.name }}, {{merchant.street}}: <u>£{{ total_amounts }}</u></h4>
 
 {% endblock %}

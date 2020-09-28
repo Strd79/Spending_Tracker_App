@@ -46,8 +46,8 @@ def update(merchant):
 # ADDITIONAL Functions
 
 def transactions(id):
-    transactions =[]
-    sql = "SELECT * FROM transactions WHERE merchant_id = %s ORDER BY date ASC"
+    transactions = []
+    sql = "SELECT * FROM transactions WHERE merchant_id = %s ORDER BY date DESC"
     values = [id]
     results = run_sql(sql, values)
     for row in results:
@@ -56,3 +56,13 @@ def transactions(id):
         transaction = Transaction(merchant, row["date"], row["amount"], tag, row["id"])
         transactions.append(transaction)
     return transactions
+
+def amounts_total(id):
+    total = []
+    sql = "SELECT amount FROM transactions WHERE merchant_id = %s"
+    values = [id]
+    results = run_sql(sql, values)
+    for row in results:
+        amount = row["amount"]
+        total.append(amount)
+    return sum(total)

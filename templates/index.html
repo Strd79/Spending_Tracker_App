@@ -16,7 +16,7 @@
         <option>- Select a merchant -</option>
         {% for merchant in merchants %}
         <option value="{{ merchant.id }}">
-            {{ merchant.name }}
+            {{ merchant.name }}: {{ merchant.street }}
         </option>
         {% endfor %}
     </select><br><br>

@@ -17,7 +17,7 @@ def save(transaction):
 
 def select_all():
     transactions = []
-    sql = "SELECT * FROM transactions ORDER BY date ASC"
+    sql = "SELECT * FROM transactions ORDER BY date DESC"
     results = run_sql(sql)
     for row in results:
         merchant = merchant_repository.select(row["merchant_id"])

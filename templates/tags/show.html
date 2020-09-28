@@ -10,4 +10,20 @@
 
 <p><a href="/tags">Back to full list of Tags</a></p>
 
+<h3>Transactions & Total Spend</h3>
+<p>This is a list of transactions and total spend with the tag <b>{{ tag.name }}</b>:</p>
+
+{% for transaction in transactions %}
+
+    <section>
+        <h4><b>Date:</b> {{ transaction.date }}</h4>
+        <p><b>Merchant:</b> {{ transaction.merchant.name }}, {{ transaction.merchant.street }}</p>
+        <p><b>Spend amount:</b> £{{ transaction.amount }}</p>
+        <hr>
+    </section>
+
+{% endfor %}
+
+<h4> Total amount spent with the tag {{ tag.name }}: <u>£{{ total_amounts }}</u></h4>
+
 {% endblock %}

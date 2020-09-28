@@ -16,7 +16,9 @@ def tags():
 @tags_blueprint.route("/tags/<id>")
 def show_tag(id):
     tag = tag_repository.select(id)
-    return render_template("tags/show.html", tag = tag)
+    transactions = tag_repository.transactions(id)
+    total_amounts = tag_repository.amounts_total(id)
+    return render_template("tags/show.html", tag = tag, transactions = transactions, total_amounts = total_amounts)
 
 # NEW
 @tags_blueprint.route("/tags/new")
