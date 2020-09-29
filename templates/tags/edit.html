@@ -14,7 +14,9 @@
         <textarea name="description" id="description" cols="50" rows="5">{{ tag.description }}</textarea><br><br>
     </div>
     <input type="submit" value="Update">
-    <a href="/tags"><button>Cancel</button></a>
+    <form action="/tags">
+        <input type="submit" value="Cancel">
+    </form>
 </form>
 
 {% endblock %}

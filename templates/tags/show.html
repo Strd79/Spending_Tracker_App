@@ -2,28 +2,41 @@
 
 {% block content %}
 
-<h2>{{ tag.name }}</h2>
-<p>{{ tag.description }}</p>
-<form action="/tags/{{ tag.id }}/edit">
-    <input type="submit" value="Edit">
-</form>
+    <header>
+        <h2>{{ tag.name }}</h2>
+        <p>{{ tag.description }}</p>
+        <form action="/tags/{{ tag.id }}/edit">
+            <input type="submit" value="Edit">
+        </form>
+        <p><a href="/tags">Back to full list of Tags</a></p>
+    </header>
 
-<p><a href="/tags">Back to full list of Tags</a></p>
+{% if transactions|length > 0 %}
 
-<h3>Transactions & Total Spend</h3>
-<p>This is a list of transactions and total spend with the tag <b>{{ tag.name }}</b>:</p>
+    <main>
+        <header>
+            <h3>Transactions & Total Spend</h3>
+            <p>This is a list of transactions and total spend with the tag <b>{{ tag.name }}</b>:</p>
+        </header>
 
 {% for transaction in transactions %}
 
-    <section>
-        <h4><b>Date:</b> {{ transaction.date }}</h4>
-        <p><b>Merchant:</b> {{ transaction.merchant.name }}, {{ transaction.merchant.street }}</p>
-        <p><b>Spend amount:</b> £{{ transaction.amount }}</p>
-        <hr>
-    </section>
+        <main class="show_list">
+            <h4><b>Date:</b> {{ transaction.date }}</h4>
+            <p><b>Merchant:</b> {{ transaction.merchant.name }}, {{ transaction.merchant.street }}</p>
+            <p><b>Spend amount:</b> £{{ transaction.amount }}</p>
+            <hr>
+        </main>
 
 {% endfor %}
 
-<h4> Total amount spent with the tag {{ tag.name }}: <u>£{{ total_amounts }}</u></h4>
+        <h4> Total amount spent with the tag {{ tag.name }}: <u>£{{ total_amounts }}</u></h4>
+
+{% else %}
+
+        <h3>You have no transactions with this tag yet.</h3>
+
+    </main> 
+{% endif %}
 
 {% endblock %}

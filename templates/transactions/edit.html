@@ -36,7 +36,9 @@
         </select><br><br>
     </div>
     <input type="submit" value="Update">
-    <a href="/transactions"><button>Cancel</button></a>
+    <form action="/transactions">
+        <input type="submit" value="Cancel">
+    </form>
 </form>
 
 {% endblock %}

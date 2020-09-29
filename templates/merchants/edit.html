@@ -18,7 +18,9 @@
         <input type="text" name="city" id="city" value="{{ merchant.city }}"><br><br>
     </div>
     <input type="submit" value="Update">
-    <a href="/merchants"><button>Cancel</button></a>
+    <form action="/merchants">
+        <input type="submit" value="Cancel">
+    </form>
 </form>
 
 {% endblock %}

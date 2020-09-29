@@ -2,19 +2,26 @@
 
 {% block content %}
 
-<a href="/tags/new"><button>Add a New Tag</button></a>
-
-<h2>Tag List:</h2>
+    <header>
+        <a href="/tags/new"><button>Add a New Tag</button></a>
+        <h2>Tag List:</h2>
+    </header>
 
 {% for tag in tags %}
 
-    <section>
-        <h3>{{ tag.name }}</h3>
-        <p><a href="/tags/{{ tag.id }}">View the description</a></p>
-        <form action="/tags/{{ tag.id }}/edit">
-            <input type="submit" value="Edit">
-        </form>
-    </section>
+    <main class="index_list">
+        <div>
+            <h3>{{ tag.name }}</h3>
+        </div>
+        <div>
+            <form action="/tags/{{ tag.id }}">
+                <input type="submit" value="Full details">
+            </form>
+            <form action="/tags/{{ tag.id }}/edit">
+                <input type="submit" value="Edit">
+            </form>
+        </div>    
+    </main>
 
 {% endfor %}
 
