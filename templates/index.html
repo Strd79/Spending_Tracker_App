@@ -23,8 +23,8 @@
         <div>
             <form action="/transactions" method="POST">
             <label for="merchant"><sup>*</sup>Select a merchant:</label><br>
-            <select name="merchant_id" id="merchant">
-                <option>- Select a merchant -</option>
+            <select name="merchant_id" id="merchant" required>
+                <option value="" disabled selected>- Select a merchant -</option>
                 {% for merchant in merchants %}
                 <option value="{{ merchant.id }}">
                     {{ merchant.name }}: {{ merchant.street }}
@@ -32,12 +32,12 @@
                 {% endfor %}
             </select><br><br>
             <label for="date"><sup>*</sup>Date of transaction:</label><br>
-            <input type="date" name="date" id="date"><br><br>
+            <input type="date" name="date" id="date" required><br><br>
             <label for="amount"><sup>*</sup>Spend amount:</label><br>
-            <input type="text" name="amount" id="amount" placeholder="£"><br><br>
+            <input type="text" name="amount" id="amount" placeholder="£" required><br><br>
             <label for="tag"><sup>*</sup>Select a tag for your transaction:</label><br>
-                <select name="tag_id" id="tag">
-                    <option>- Select a tag -</option>
+                <select name="tag_id" id="tag" required>
+                    <option value="" disabled selected>- Select a tag -</option>
                     {% for tag in tags%}
                     <option value="{{ tag.id }}">
                         {{ tag.name }}
