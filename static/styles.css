@@ -1,20 +1,24 @@
 body {
     background-color: aliceblue;
     font-family: 'Ubuntu', sans-serif;
-    align-content: center;
     margin: 0;
 }
 main {
     margin: 25px;
+    max-width: 800px;
 }
 
 header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     background-color: #4669E6;
-    padding: 25px;
+    padding: 15px 25px;
     color: white;
+}
+
+h1 {
+    font-size: 50px;
 }
 
 ul {
@@ -38,6 +42,37 @@ header button {
     font-style: italic;
 }
 
+main button {
+    background-color: white;
+    border-radius: 15px;
+    width: 160px;
+    height: 50px;
+    border: none;
+    box-shadow: 5px 7px aqua;
+    font-size: 14px;
+    font-weight: 700;
+    font-style: italic;
+    margin-right: 20px;
+}
+
+input button {
+    background-color: white;
+    border-radius: 15px;
+    width: 160px;
+    height: 50px;
+    border: none;
+    box-shadow: 5px 7px aqua;
+    font-size: 14px;
+    font-weight: 700;
+    font-style: italic;
+    margin-right: 20px;
+}
+
 header button:hover {
     background-color: aquamarine;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
 }
