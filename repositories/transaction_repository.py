@@ -70,3 +70,14 @@ def sort_all_by_merchant_a2z():
         transaction = Transaction(merchant, row["date"], row["amount"], tag, row["id"])
         transactions.append(transaction)
     return transactions
+
+def sort_all_by_merchant_z2a():
+    transactions = []
+    sql = "select t.* from transactions as t join merchants as m on m.id = t.merchant_id order by m.name DESC"
+    results = run_sql(sql)
+    for row in results:
+        merchant = merchant_repository.select(row["merchant_id"])
+        tag = tag_repository.select(row["tag_id"])
+        transaction = Transaction(merchant, row["date"], row["amount"], tag, row["id"])
+        transactions.append(transaction)
+    return transactions

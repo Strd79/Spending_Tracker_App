@@ -11,9 +11,22 @@ transactions_blueprint = Blueprint("transactions", __name__)
 # INDEX
 @transactions_blueprint.route("/transactions")
 def transactions():
+    transactions = transaction_repository.select_all()
+    total_amounts = transaction_repository.amounts_total()
+    return render_template("transactions/index.html", transactions = transactions, total_amounts = total_amounts)
+
+@transactions_blueprint.route("/transactions/merchants_a2z")
+def transactions_sorted_by_merchant_a2z():
     transactions = transaction_repository.sort_all_by_merchant_a2z()
     total_amounts = transaction_repository.amounts_total()
     return render_template("transactions/index.html", transactions = transactions, total_amounts = total_amounts)
+
+@transactions_blueprint.route("/transactions/merchants_z2a")
+def transactions_sorted_by_merchant_z2a():
+    transactions = transaction_repository.sort_all_by_merchant_z2a()
+    total_amounts = transaction_repository.amounts_total()
+    return render_template("transactions/index.html", transactions = transactions, total_amounts = total_amounts)
+
 
 # SHOW
 @transactions_blueprint.route("/transactions/<id>")
