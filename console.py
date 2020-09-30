@@ -54,4 +54,6 @@ import repositories.transaction_repository as transaction_repository
 # transaction_repository.update(Transaction(merchant_1, "08 Jan 2000", 123.45, tag_2, 1))
 # transaction_repository.delete(4)
 
+print(transaction_repository.sort_all_by_merchant_a2z())
+
 pdb.set_trace()
