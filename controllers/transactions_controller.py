@@ -15,15 +15,27 @@ def transactions():
     total_amounts = transaction_repository.amounts_total()
     return render_template("transactions/index.html", transactions = transactions, total_amounts = total_amounts)
 
-@transactions_blueprint.route("/transactions/merchants_a2z")
+@transactions_blueprint.route("/transactions/merchant_a2z")
 def transactions_sorted_by_merchant_a2z():
     transactions = transaction_repository.sort_all_by_merchant_a2z()
     total_amounts = transaction_repository.amounts_total()
     return render_template("transactions/index.html", transactions = transactions, total_amounts = total_amounts)
 
-@transactions_blueprint.route("/transactions/merchants_z2a")
+@transactions_blueprint.route("/transactions/merchant_z2a")
 def transactions_sorted_by_merchant_z2a():
     transactions = transaction_repository.sort_all_by_merchant_z2a()
+    total_amounts = transaction_repository.amounts_total()
+    return render_template("transactions/index.html", transactions = transactions, total_amounts = total_amounts)
+
+@transactions_blueprint.route("/transactions/tag_a2z")
+def transactions_sorted_by_tag_a2z():
+    transactions = transaction_repository.sort_all_by_tag_a2z()
+    total_amounts = transaction_repository.amounts_total()
+    return render_template("transactions/index.html", transactions = transactions, total_amounts = total_amounts)
+
+@transactions_blueprint.route("/transactions/tag_z2a")
+def transactions_sorted_by_tag_z2a():
+    transactions = transaction_repository.sort_all_by_tag_z2a()
     total_amounts = transaction_repository.amounts_total()
     return render_template("transactions/index.html", transactions = transactions, total_amounts = total_amounts)
 

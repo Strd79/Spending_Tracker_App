@@ -81,3 +81,25 @@ def sort_all_by_merchant_z2a():
         transaction = Transaction(merchant, row["date"], row["amount"], tag, row["id"])
         transactions.append(transaction)
     return transactions
+
+def sort_all_by_tag_a2z():
+    transactions = []
+    sql = "select t.* from transactions as t join tags as tg on tg.id = t.tag_id order by tg.name ASC"
+    results = run_sql(sql)
+    for row in results:
+        merchant = merchant_repository.select(row["merchant_id"])
+        tag = tag_repository.select(row["tag_id"])
+        transaction = Transaction(merchant, row["date"], row["amount"], tag, row["id"])
+        transactions.append(transaction)
+    return transactions
+
+def sort_all_by_tag_z2a():
+    transactions = []
+    sql = "select t.* from transactions as t join tags as tg on tg.id = t.tag_id order by tg.name DESC"
+    results = run_sql(sql)
+    for row in results:
+        merchant = merchant_repository.select(row["merchant_id"])
+        tag = tag_repository.select(row["tag_id"])
+        transaction = Transaction(merchant, row["date"], row["amount"], tag, row["id"])
+        transactions.append(transaction)
+    return transactions
