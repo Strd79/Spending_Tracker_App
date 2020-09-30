@@ -20,6 +20,7 @@ body > header {
     background-color: #4669E6;
     padding: 15px 25px;
     color: white;
+    box-shadow: 5px 7px silver;
 }
 
 body > main > header {
@@ -39,10 +40,27 @@ header p {
 }
 
 h1 {
-    font-size: 50px;
+    font-size: 40px;
+    border: 4px solid darkblue;
+    background-color: aliceblue;
+    color: darkblue;
+    padding: 20px 50px;
+    border-radius: 15px 60px 15px;
+    box-shadow: 5px 7px darkblue;
+    text-align: center;
 }
 p {
     font-family: 'Lato', sans-serif;
+}
+
+h2 {
+    font-size: 32px;
+    color: darkblue;
+}
+
+h3 {
+    font-size: 24px;
+    color: darkblue;
 }
 
 ul {
@@ -56,6 +74,7 @@ li {
 
 header button {
     background-color: white;
+    color: darkblue;
     border-radius: 15px;
     width: 120px;
     height: 50px;
@@ -67,12 +86,14 @@ header button {
 }
 
 header button:hover {
-    background-color: aquamarine;
+    background-color: turquoise;
     border: 3px solid darkblue;
+    transition: 0.15s;
 }
 
 main button {
     background-color: aliceblue;
+    color: darkblue;
     border:3px solid darkblue;
     border-radius: 15px;
     width: 260px;
@@ -87,6 +108,7 @@ main button {
 main button:hover {
     background-color: darkblue;
     color: white;
+    transition: 0.15s;
 }
 
 input[type=text], select {
@@ -119,6 +141,7 @@ input[type=date] {
 
 input[type=submit] {
     background-color: aliceblue;
+    color: darkblue;
     border:3px solid darkblue;
     border-radius: 15px;
     width: 160px;
@@ -134,6 +157,7 @@ input[type=submit] {
 input[type=submit]:hover {
     background-color: darkblue;
     color: white;
+    transition: 0.15s;
 }
 
 footer {
