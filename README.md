@@ -1,4 +1,4 @@
-# spending_tracker_project
+# Spending Tracker Project
 This was my first individual CodeClan project to create a Spending Tracker App. I built this using Python, Flask, HTML/CSS, PostgreSQL and the psycopg. 
 Users can track individual transactions, including the date, merchant and a tag (e.g. Food Shopping, Travel etc). They can then filter transactions by any of the above criteria and see a running total spent.
 
